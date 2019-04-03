@@ -1,4 +1,4 @@
-# App-Aprendendo-Ingles
+# App-Aprendendo-Inglês
 
 #APP1 - Aprendendo Inglês: Aqui você será introduzido ao universo do framework Angular 4. Vamos criar nosso primeiro projeto que consiste em uma aplicação de tradução de frases. Ao longo do desenvolvimento desse projeto vamos aprender:
 
