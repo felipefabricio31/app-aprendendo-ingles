@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Frase } from '../shared/frase.model'
-import { FRASES } from './frase-mock'
+import { Frase } from '../shared/frase.model';
+import { FRASES } from './frase-mock';
 
 @Component({
   selector: 'app-panel',
@@ -10,12 +10,47 @@ import { FRASES } from './frase-mock'
 })
 export class PanelComponent implements OnInit {
 
-  public frases: Frase[] = FRASES
-  public instrucao: string = 'Taduza a frase:'
+  public frases: Frase[] = FRASES;
+  public instrucao = 'Traduza a frase:';
+  public resposta: string;
 
-  constructor() { console.log(this.frases)}
+  public rodada = 0;
+  public rodadaFrase: Frase;
+
+  public progresso = 0;
+
+  constructor() {
+    this.rodadaFrase = this.frases[this.rodada];
+    console.log(this.rodadaFrase);
+  }
 
   ngOnInit() {
+  }
+
+  public atualizaResposta(resposta: Event): void {
+    this.resposta = (resposta.target as HTMLInputElement).value;
+    // console.log(this.resposta)
+  }
+
+  public verificarResposta(): void {
+
+    if (this.rodadaFrase.frasePtBr === this.resposta) {
+      alert('A tradução está correta');
+      // Trocar pergunta da rodada
+      this.rodada++;
+
+      console.log(this.rodada);
+      this.rodadaFrase = this.frases[this.rodada];
+      console.log(this.rodadaFrase);
+
+      //Progresso
+      this.progresso = this.progresso + (100 / this.frases.length);
+      console.log(this.progresso);
+
+    } else {
+      alert('A tradução está errada.');
+    }
+
   }
 
 }
