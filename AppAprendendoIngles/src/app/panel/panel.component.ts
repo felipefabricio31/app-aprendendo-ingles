@@ -17,7 +17,8 @@ export class PanelComponent implements OnInit {
   public rodada = 0;
   public rodadaFrase: Frase;
 
-  public progresso = 0;
+  public progresso: number = 0;
+  public tentativas: number = 3;
 
   constructor() {
     this.AtualizaRodada()
@@ -33,7 +34,8 @@ export class PanelComponent implements OnInit {
 
   public verificarResposta(): void 
   {
-    if (this.rodadaFrase.frasePtBr === this.resposta) {
+    if (this.rodadaFrase.frasePtBr === this.resposta) 
+    {
       alert('A tradução está correta');
       // Trocar pergunta da rodada
       this.rodada++;
@@ -47,9 +49,15 @@ export class PanelComponent implements OnInit {
     } 
     else 
     {
-      alert('A tradução está errada.');
+      //alert('A tradução está errada.');
+      
+      //Diminuir a variavel tentativas
+      this.tentativas--
+      if(this.tentativas === -1)
+      {
+        alert('Você perdeu todas as tentativas.')
+      }
     }
-
   }
 
   public AtualizaRodada(): void

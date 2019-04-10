@@ -13,5 +13,8 @@ export class Coracao
             {
                 return this.urlCoracaoCheio
             }
+            else{
+                return this.urlCoracaoVazio
+            }
         }
 }
