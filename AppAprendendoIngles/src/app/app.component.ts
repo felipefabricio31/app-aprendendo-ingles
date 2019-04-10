@@ -5,6 +5,13 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'AppAprendendoIngles';
+export class AppComponent 
+{
+  public jogoEmAndamento: boolean = true
+
+  public encerrarJogo(tipo: string): void
+  {
+    console.log(tipo)
+    this.jogoEmAndamento = false
+  }
 }
