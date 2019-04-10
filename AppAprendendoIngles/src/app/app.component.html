@@ -5,17 +5,19 @@
 </div>
 
 <ng-template #fimDeJogo>
-    <div *ngIf="tipoEncerramento === 'derrota';else fimDeJogoVitoria" style="margin-top:30px;">
+    <div *ngIf="tipoEncerramento === 'derrota';else fimDeJogoVitoria" style="margin-top:30px;" class="container text-center">
         <div class="alert alert-danger" role="alert">
             <h3>Fim de Jogo, infelizmente você perdeu. :S</h3>
         </div>
+        <button class="btn btn-primary" (click)="reiniciarJogo()">Jogar novamente</button>
     </div>
 </ng-template>
 
 <ng-template #fimDeJogoVitoria>
-    <div class="container" style="margin-top:30px;">
+    <div class="container text-center" style="margin-top:30px;">
         <div class="alert alert-success" role="alert">
             <h3>Fim de Jogo, você ganhou. =D</h3>
         </div>
+        <button class="btn btn-primary" (click)="reiniciarJogo()">Jogar novamente</button>
     </div>
 </ng-template>

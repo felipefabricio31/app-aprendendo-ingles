@@ -30,7 +30,6 @@ export class PanelComponent implements OnInit, OnDestroy {
 
   ngOnDestroy()
   {
-    console.log('Componente Destruido')
   }
 
   public atualizaResposta(resposta: Event): void {
@@ -52,7 +51,6 @@ export class PanelComponent implements OnInit, OnDestroy {
 
       if(this.rodada === 4)
       {
-        alert('Concluiu as traduções com sucesso.')
         this.encerrarJogo.emit('vitoria')
       }
 
@@ -61,12 +59,10 @@ export class PanelComponent implements OnInit, OnDestroy {
     else 
     {
       //alert('A tradução está errada.');
-      
       //Diminuir a variavel tentativas
       this.tentativas--
       if(this.tentativas === -1)
       {
-        alert('Você perdeu todas as tentativas.')
         this.encerrarJogo.emit('derrota')
       }
     }
